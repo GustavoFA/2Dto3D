@@ -7,6 +7,10 @@ export function translate_z({x, y, z}, dz) {
     return { x, y, z: z + dz }
 }
 
+export function translate_y({x, y, z}, dy) {
+    return { x, y: y + dy, z}
+}
+
 export function project({x, y, z}) {
     return { x: x/z, y: y/z }
 }

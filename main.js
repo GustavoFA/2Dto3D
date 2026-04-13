@@ -1,5 +1,5 @@
 import { vertices, faces, line, point} from "./geometry.js"
-import { rotate_xz, translate_z, project, screen } from "./transform.js"
+import { rotate_xz, translate_z, translate_y, project, screen } from "./transform.js"
 
 const BACKGROUND = "#000000"
 const FOREGROUND = "#00ff04"
@@ -32,7 +32,7 @@ function drawTitle(title="The object", fontsize=32) {
 
 
 function transform(v, angle, dz) {
-    return screen(project(translate_z(rotate_xz(v, angle), dz)), game.width, game.height)
+    return screen(project(translate_y(rotate_xz(v, angle), dz)), game.width, game.height)
 }
 
 function frame(timestamp) {
