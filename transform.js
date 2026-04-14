@@ -56,6 +56,16 @@ export function translate_y({x, y, z}, dy) {
 }
 
 /**
+ * Translates a 3D point along the X-axis
+ * @param {{x:number, y:number, z:number}} point - Input 3D point
+ * @param {number} dy - Translation distance along X
+ * @returns {{x:number, y:number, z:number}} Translated point
+ */
+export function translate_x({x, y, z}, dx) {
+    return { x: x + dx, y, z }
+}
+
+/**
  * Projects a 3D point into 2D using perspective projection
  * (simple pinhole camera model)
  * @param {{x:number, y:number, z:number}} point - Input 3D point
