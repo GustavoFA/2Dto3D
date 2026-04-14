@@ -30,11 +30,12 @@ function drawTitle(title="The object", fontsize=32) {
     ctx.fillText(title, game.width/2, 1.25*fontsize)
 }
 
+// Considering that the camera is looking along the Z direction
 
 function transform(v, angle, dz) {
-    // return screen(project(translate_z(rotate_xz(v, angle), dz)), game.width, game.height)
+    return screen(project(translate_z(rotate_yz(v, angle), dz)), game.width, game.height)
     // return screen(project(trrotate_xz(v, angle)), game.width, game.height)
-    return screen(project(v), game.width, game.height)
+    // return screen(project(v), game.width, game.height)
 }
 
 function frame(timestamp) {
