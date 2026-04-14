@@ -32,7 +32,8 @@ function drawTitle(title="The object", fontsize=32) {
 
 
 function transform(v, angle, dz) {
-    return screen(project(translate_z(rotate_yz(v, angle), dz)), game.width, game.height)
+    return screen(project(translate_z(rotate_xy(v, angle), dz)), game.width, game.height)
+    // return screen(project())
 }
 
 function frame(timestamp) {
