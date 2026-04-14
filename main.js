@@ -1,5 +1,5 @@
 import { vertices, faces, line, point} from "./geometry.js"
-import { rotate_xz, rotate_xy, rotate_yz, translate_z, translate_y, project, screen } from "./transform.js"
+import { rotate_xz, rotate_xy, rotate_yz, translate_z, translate_y, translate_x, project, screen } from "./transform.js"
 
 const BACKGROUND = "#000000"
 const FOREGROUND = "#00ff04"
@@ -32,8 +32,9 @@ function drawTitle(title="The object", fontsize=32) {
 
 
 function transform(v, angle, dz) {
-    return screen(project(translate_z(rotate_xy(v, angle), dz)), game.width, game.height)
-    // return screen(project())
+    // return screen(project(translate_z(rotate_xz(v, angle), dz)), game.width, game.height)
+    // return screen(project(trrotate_xz(v, angle)), game.width, game.height)
+    return screen(project(v), game.width, game.height)
 }
 
 function frame(timestamp) {
@@ -48,7 +49,9 @@ function frame(timestamp) {
         for (let i = 0; i < f.length; ++i) {
             const a = transform(vertices[f[i]], angle, dz)
             const b = transform(vertices[f[(i+1) % f.length]], angle, dz)
-            line(ctx, FOREGROUND, a, b, 3)
+            point(ctx, FOREGROUND, a)
+            point(ctx, FOREGROUND, b)
+            line(ctx, FOREGROUND, a, b, 1)
         }
     }
 
