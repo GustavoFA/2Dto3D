@@ -3,6 +3,16 @@ export function rotate_xz({x, y, z}, angle) {
     return { x: x*c - z*s, y, z: x*s + z*c }
 }
 
+export function rotate_xy({x, y, z}, angle) {
+    const c = Math.cos(angle), s = Math.sin(angle)
+    return {x: x*c - y*s, y: x*c + y*c, z}
+}
+
+export function rotate_yz({x, y, z}, angle) {
+    const c = Math.cos(angle), s = Math.sin(angle)
+    return {x, y: y*c - z*c, z: y*c + z*c}
+}
+
 export function translate_z({x, y, z}, dz) {
     return { x, y, z: z + dz }
 }
